@@ -1,0 +1,68 @@
+// 设置通用变量
+@bgc: rgb(138, 140, 152);
+
+// 清除原有样式
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(11, 30, 47);
+    font: bold 20px;
+}
+
+@keyframes foodAnimation {	/*透明度由0到1*/
+	0% {
+		opacity: 0.1;				/*透明度为0*/
+	}
+	100% {
+		opacity: 1;				/*透明度为1*/
+	}
+}
+ 
+#food{
+	animation: foodAnimation 0.1s infinite alternate;
+}
+
+#main {
+    width: 360px;
+    height: 420px;
+    background-color: @bgc;
+    margin: 100px auto;
+    border: 5px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+    #stage {
+        width: 304px;
+        height: 304px;
+        border: 2px solid black;
+        position: relative;      //子绝父相
+        #snake>div {
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            border: 1px solid @bgc;    //蛇身体之间有空隙
+            position: absolute;          //子绝父相，子在父里面移动
+        }
+        #food {
+            width: 10px;
+            height: 10px;
+            background-color: rgb(3, 93, 50);
+            border: 1px solid @bgc;
+            position: absolute;
+            border-radius: 100%;
+            left: 40px;
+            top: 40px;
+        }
+    }
+    #score-panel {
+        width: 300px;
+        display: flex;
+        justify-content: space-around;
+    }
+}
